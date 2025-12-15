@@ -19,4 +19,16 @@ public class StringAppTest {
         StringCalculator calculator = new StringCalculator();
         assertEquals(3, calculator.add("1,2"));
     }
+    
+    @Test
+    void testMultipleNumbersReturnSum() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(6, calculator.add("1,2,3"));
+    }
+    
+    @Test
+    void testNewlineAsSeparator() {
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(6, calculator.add("1\n2,3"));
+    }
 }

@@ -1,5 +1,5 @@
 package com.mycompany.stringcalculator;
-
+import java.util.Arrays;
 public class StringCalculator {
 
     public int add(String numbers) {
@@ -7,11 +7,9 @@ public class StringCalculator {
             return 0;
         }
 
-        if (numbers.contains(",")) {
-            String[] parts = numbers.split(",");
-            return Integer.parseInt(parts[0]) + Integer.parseInt(parts[1]);
-        }
-
-        return Integer.parseInt(numbers);
-    }
+        String normalized = numbers.replace("\n", ",");
+        return Arrays.stream(normalized.split(","))
+                .mapToInt(Integer::parseInt)
+                .sum();
+    }   
 }
