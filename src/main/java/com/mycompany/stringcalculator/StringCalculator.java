@@ -4,12 +4,11 @@ public class StringCalculator {
 
     public int add(String numbers) {
         if (numbers.isEmpty()) {
-            return 0;
-        }
-
-        String normalized = numbers.replace("\n", ",");
-        return Arrays.stream(normalized.split(","))
-                .mapToInt(Integer::parseInt)
-                .sum();
-    }   
+        return 0;
+    }
+    
+    return Arrays.stream(numbers.split(","))
+                 .mapToInt(Integer::parseInt)
+                 .sum();
+    }
 }
